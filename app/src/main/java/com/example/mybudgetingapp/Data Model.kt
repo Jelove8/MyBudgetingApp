@@ -1,40 +1,42 @@
 package com.example.mybudgetingapp
 
+import java.util.*
+
 data class UserBudget(
     var bdgtName: String,
     var bdgtUnassignedMoney: Double = 0.00,
-    var bdgtAllAccounts: MutableList<Accounts> = mutableListOf(),
-    var allMonthlyMonthlyDistributions: MutableList<MonthlyDistribution> = mutableListOf(),
-    var bdgtAllTransactions: MutableList<Transactions> = mutableListOf(),
-    var bdgtAllCategories: MutableList<Category> = mutableListOf(),
+    var bdgtAllAccounts: MutableList<Account> = mutableListOf(),
+    var bdgtAllTransactions: MutableList<Transaction> = mutableListOf(),
+    var bdgtAllDistributions: MutableList<Distribution> = mutableListOf()
 )
 
-data class MonthlyDistribution(
-    val bdgtYear: Int,
-    val bdgtMonth: Int, // 0 = January ... 11 = December
+data class Distribution(
+    val bdgtYear: Int = Calendar.getInstance().get(Calendar.YEAR),
+    val bdgtMonth: Int = Calendar.getInstance().get(Calendar.MONTH), // 0 = January ... 11 = December
     val bdgtCategories: MutableList<Category> = mutableListOf()
 )
 
-data class Accounts(
-    var acctName: String,
-    var acctType: String,
-    var acctBalance: Double = 0.00,
-    var acctTransactionIDs: MutableList<String> = mutableListOf()
+data class Account(
+    var accNickname: String,
+    val acctType: String,
+    val acctBalance: Double = 0.00,
+    val acctTransactionIDs: MutableList<String> = mutableListOf()
 )
 
 data class Category(
-    var catName: String?,
-    var catType: Boolean = true,  // True = category, False = subcategory
-    var catAssignedMoney: Double = 0.00,
-    var catAvailableMoney: Double = 0.00,
-    var subcategories: MutableList<Category> = mutableListOf()
+    var catName: String,
+    val catID: String,
+    val catType: Boolean = true,  // True = category, False = subcategory
+    val catAssignedMoney: Double = 0.00,
+    val catAvailableMoney: Double = 0.00,
+    val subcategories: MutableList<Category> = mutableListOf()
 )
 
-data class Transactions(
-    var id: String,
+data class Transaction(
+    val id: String,
     var amount: Double = 0.00,
     var payee: String? = null,
-    var subcategory: String? = null,
+    var subcategoryID: String? = null,
     var cleared: Boolean = false,
     var memo: String? = null
 )
