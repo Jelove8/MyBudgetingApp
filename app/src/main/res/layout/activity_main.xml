@@ -107,7 +107,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_switchBudget" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcy_bdgtCategories"
+        android:id="@+id/rcy_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
@@ -256,5 +256,14 @@
             app:layout_constraintTop_toTopOf="@+id/btn_sep" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/frag_main"
+        android:name="com.example.mybudgetingapp.EditCategoriesFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/rcy_main"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
