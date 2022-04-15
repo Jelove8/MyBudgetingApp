@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.btnEditCategories.setOnClickListener {
+            binding.cnstMainHeader.visibility = View.GONE
             binding.fragMain.visibility = View.VISIBLE
             changeFragment("main", EditCategoriesFragment())
         }

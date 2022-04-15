@@ -55,36 +55,49 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_switchBudget"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cnst_mainHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
+        <Button
+            android:id="@+id/btn_switchBudget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_switchDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_editCategories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_bdgtUnassigned"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Button"
+        android:text="$ 0.00"
+        android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_switchDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btn_editCategories"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cnst_mainHeader" />
 
     <TextView
         android:id="@+id/tv_readytoassign"
@@ -95,17 +108,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_bdgtUnassigned"
         app:layout_constraintStart_toEndOf="@+id/tv_bdgtUnassigned" />
 
-    <TextView
-        android:id="@+id/tv_bdgtUnassigned"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="16dp"
-        android:text="$ 0.00"
-        android:textSize="32sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_switchBudget" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcy_main"
         android:layout_width="match_parent"
@@ -115,7 +117,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ll_navbar"
         app:layout_constraintTop_toBottomOf="@+id/tv_bdgtUnassigned"
         app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="0dp" >
+        tools:layout_editor_absoluteX="0dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -131,12 +133,11 @@
         android:id="@+id/cnst_dateButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:padding="4dp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_switchDate">
+        app:layout_constraintTop_toBottomOf="@+id/cnst_mainHeader">
 
         <Button
             android:id="@+id/btn_jan"
@@ -144,8 +145,8 @@
             android:layout_height="wrap_content"
             android:text="Jan"
             android:textSize="12sp"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="-1dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_feb"
@@ -262,8 +263,11 @@
         android:name="com.example.mybudgetingapp.EditCategoriesFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="#FFFFFF"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/rcy_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
